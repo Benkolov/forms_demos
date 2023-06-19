@@ -8,6 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+{% if name %}
+    <h>Hello {{ name }}</h>
+{% else %}
+    <h1>Please enter your name</h1>
+{% endif %}
 
+{#<p>CSRF TOKEN: {{ csrf_token }}</p>#}
+
+<form action="{% url 'index' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
